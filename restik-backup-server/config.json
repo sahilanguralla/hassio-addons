@@ -1,0 +1,40 @@
+{
+    "name": "Restic Backup Add-on",
+    "version": "1.0.0",
+    "slug": "restic_backup",
+    "description": "Backup data using Restic and SSHFS with a Next.js UI.",
+    "arch": [
+        "aarch64",
+        "amd64",
+        "armv7",
+        "i386"
+    ],
+    "startup": "services",
+    "boot": "auto",
+    "ingress": true,
+    "ingress_port": 3000,
+    "panel_icon": "mdi:backup-restore",
+    "panel_title": "Restic Backup",
+    "options": {
+        "db_host": "postgres",
+        "db_port": 5432,
+        "db_name": "restic_db",
+        "db_user": "restic_user",
+        "db_password": "restic_pass",
+        "ui_port": 3000
+    },
+    "schema": {
+        "db_host": "str",
+        "db_port": "int",
+        "db_name": "str",
+        "db_user": "str",
+        "db_password": "str",
+        "ui_port": "port"
+    },
+    "ports": {
+        "3000/tcp": null
+    },
+    "ports_description": {
+        "3000/tcp": "Web interface (Not required for ingress)"
+    }
+}
